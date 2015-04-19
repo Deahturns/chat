@@ -43,6 +43,13 @@
 		$_SESSION['userNick'] = $nick;
 		$_SESSION['userIP'] = get_user_IP();
 
+		if(substr_count($nick, "<") > 0){
+			return "index.php";
+		}
+		if(substr_count($room, "<") > 0){
+			return "index.php";
+		}
+
 		
 		$db->query("INSERT INTO rooms (roomName) VALUES ('$room')");
 
@@ -98,9 +105,14 @@
 		}
 
 		function render(){
+			$nick = $this->nick;
+			$msg = strip_tags($this->text);
+			if($nick == "-root-"){
+				$nick = "<font color='red'>Developer</font>";
+			}
 			?>
 				<div class="msg">
-					<?php echo "$this->nick: $this->text"; ?>
+					<?php echo "<font color='blue'>$nick</font>: $msg"; ?>
 				</div>
 			<?php
 		}
