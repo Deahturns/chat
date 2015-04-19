@@ -31,16 +31,18 @@
 						event.preventDefault();
 						var text = $("#msg").val();
 
+						if(text.substring(0, 1) == "<"){
+							alert("This type of message is forbidden");
+							return;
+						}
+
 						var request = $.ajax({
 							type:"post",
 							cache:false,
 							url:"apps/convo_send.php",
 							data:{userIP: "<?php echo $_SESSION['userIP']; ?>", room: "<?php echo $room; ?>", message: text, nick: "<?php echo $_SESSION['userNick']; ?>"}
 						});
-
-						request.done(function(){
-							$("#msg").val("");
-						});
+						$("#msg").val("");
 					});
 				</script>
 			</span>

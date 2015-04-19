@@ -6,12 +6,15 @@
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
 	</head>
 
 	<body>
 		<div class="box">
 			<span>
 				<h2>Chat</h2>
+				<p>Type "global" as Chatroom to join the global chat.</p>
+				<p>Latest created chatroom: <font color="blue"><?php echo room_latest(); ?></font></p>
 				<form method="post">
 					<input class="intext" type="text" name="chat_nick" placeholder="Nickname">
 					<input class="intext" type="text" name="chat_roomname" placeholder="Chatroom">

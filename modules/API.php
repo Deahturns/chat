@@ -2,7 +2,16 @@
 
 	session_start();
 
-	$db = new PDO("mysql:host=*.dev;dbname=chat;", "root", "tango255");
+	$db = new PDO("mysql:host=localhost;dbname=chat;", "root", "tango255");
+
+	function room_latest(){
+		global $db;
+
+		$result = $db->query("SELECT * FROM rooms ORDER BY roomDate DESC LIMIT 1");
+		while(($row = $result->fetch()) != false){
+			return $row['roomName'];
+		}
+	}
 
 	function auth_room($room){
 		global $db;
