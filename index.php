@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 
 	<body>
@@ -26,7 +27,7 @@
 				?>
 			</span>
 			<div class="footer">
-				<i>Your conversations are being scanned.</i>
+				<i>Your conversations are being saved.</i>
 			</div>
 		</div>
 	</body>

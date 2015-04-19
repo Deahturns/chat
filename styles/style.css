@@ -80,4 +80,8 @@
 .btn-emerald {
   background-color: #2ecc71; }
 
+@media screen and (max-width: 700px) {
+  .box {
+    width: 100% !important; } }
+
 /*# sourceMappingURL=style.css.map */

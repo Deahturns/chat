@@ -23,6 +23,9 @@
 	function logout(){
 		unset($_SESSION['userNick']);
 		unset($_SESSION['userIP']);
+		?>	
+			<script> window.location.href="index.php"; </script>
+		<?php
 	}
 
 	function login($nick, $room){
