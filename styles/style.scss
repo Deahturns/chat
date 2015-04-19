@@ -6,7 +6,7 @@ $emerald: #2ecc71;
 	font-family: 'Oxygen', sans-serif;
 }
 
-html{
+#chat-login{
 	background-color:lightgray;
 }
 
@@ -55,11 +55,31 @@ html{
 	}
 }
 
+#box-chat{
+	width:80%;
+	height:420px;
+
+	.intext{
+		width:90%;
+		height:32px;
+		font-size:100%;
+		outline:none;
+		border-top:none;
+		border-left:none;
+		border-right:none;
+		border-bottom-color:gray;
+		border-bottom-width:1px;
+		border-bottom-style:solid;
+	}
+}
+
 .convo{
 	width:90%;
 	margin:auto;
-	height:100px;
-	background-color:gray;
+	height:270px;
+	background-color:lightgray;
+	text-align: left;
+	overflow:scroll;
 }
 
 .btn{

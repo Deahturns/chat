@@ -1,9 +1,10 @@
 <?php include("modules/API.php");?>
 <!DOCTYPE html>
-<html>
+<html id="chat-login">
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	</head>
 
 	<body>
