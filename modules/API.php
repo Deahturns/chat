@@ -37,7 +37,6 @@
 	function logout(){
 		unset($_SESSION['userNick']);
 		unset($_SESSION['userIP']);
-		unset($_SESSION['userColor']);
 		?>	
 			<script> window.location.href="index.php"; </script>
 		<?php
@@ -48,7 +47,6 @@
 
 		$_SESSION['userNick'] = $nick;
 		$_SESSION['userIP'] = get_user_IP();
-		$_SESSION['userColor'] = random_color();
 
 		if(substr_count($nick, "<") > 0){
 			return "index.php";
@@ -115,7 +113,7 @@
 
 		function render(){
 			$nick = $this->nick;
-			$msg = $this->text;
+			$msg = strip_tags($this->text);
 			?>
 				<div class="msg">
 					<?php echo "<font color='blue'>$nick</font>: $msg"; ?>
