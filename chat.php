@@ -30,12 +30,7 @@
 					$("#message-box").submit(function(event){
 						event.preventDefault();
 						var text = $("#msg").val();
-
-						if(text.substring(0, 1) == "<"){
-							alert("This type of message is forbidden");
-							return;
-						}
-
+						
 						var request = $.ajax({
 							type:"post",
 							cache:false,

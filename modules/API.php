@@ -4,6 +4,11 @@
 
 	$db = new PDO("mysql:host=localhost;dbname=chat;", "root", "tango255");
 
+	function random_color(){
+		$colors = explode(",","aqua,black,blue,fuchsia,gray,green,lime,maroon,navy,olive,orange,purple,red,silver,teal,white,yellow");
+		return $colors[rand(0, count($colors))];
+	}
+
 	function room_latest(){
 		global $db;
 
@@ -32,6 +37,7 @@
 	function logout(){
 		unset($_SESSION['userNick']);
 		unset($_SESSION['userIP']);
+		unset($_SESSION['userColor']);
 		?>	
 			<script> window.location.href="index.php"; </script>
 		<?php
@@ -42,6 +48,7 @@
 
 		$_SESSION['userNick'] = $nick;
 		$_SESSION['userIP'] = get_user_IP();
+		$_SESSION['userColor'] = random_color();
 
 		if(substr_count($nick, "<") > 0){
 			return "index.php";
@@ -85,6 +92,7 @@
 		var $nick;
 		var $date;
 		var $ip;
+		var $color;
 
 		function __construct($id){
 			$this->id = $id;
@@ -101,15 +109,13 @@
 				$this->nick = $row['userNick'];
 				$this->date = $row['messageDate'];
 				$this->ip = $row['userIP'];
+				$this->color = $row['messageColor'];
 			}
 		}
 
 		function render(){
 			$nick = $this->nick;
-			$msg = strip_tags($this->text);
-			if($nick == "-root-"){
-				$nick = "<font color='red'>Developer</font>";
-			}
+			$msg = $this->text;
 			?>
 				<div class="msg">
 					<?php echo "<font color='blue'>$nick</font>: $msg"; ?>
