@@ -12,7 +12,7 @@
 	function room_latest(){
 		global $db;
 
-		$result = $db->query("SELECT * FROM rooms ORDER BY roomDate DESC LIMIT 1");
+		$result = $db->query("SELECT * FROM `rooms` ORDER BY `roomDate` DESC LIMIT 1");
 		while(($row = $result->fetch()) != false){
 			return $row['roomName'];
 		}
@@ -21,7 +21,7 @@
 	function auth_room($room){
 		global $db;
 
-		$result = $db->query("SELECT * FROM rooms WHERE roomName='$room'");
+		$result = $db->query("SELECT * FROM `rooms` WHERE `roomName`='$room'");
 		$count = 0;
 		while(($row = $result->fetch()) != false){
 			$count++;
@@ -56,7 +56,7 @@
 		}
 
 		
-		$db->query("INSERT INTO rooms (roomName) VALUES ('$room')");
+		$db->query("INSERT INTO `rooms` (roomName) VALUES ('$room')");
 
 		return "chat.php?room=$room";
 	}
@@ -99,7 +99,7 @@
 		function fetch_build(){
 			global $db;
 
-			$result = $db->query("SELECT * FROM messages WHERE messageID=$this->id");
+			$result = $db->query("SELECT * FROM `messages` WHERE `messageID`=$this->id");
 			while(($row = $result->fetch()) != false){
 				$this->id = $row['messageID'];
 				$this->text = $row['messageText'];
